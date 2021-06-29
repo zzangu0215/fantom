@@ -1,16 +1,13 @@
 var baseUrl = "https://gateway.marvel.com:443/v1/public/characters?";
-var publicApi = "ca005abda60b0404cf146a9cb51c1cce40fb094d";
-// var searchword = $('#search-hero');
-
+var publicApi = "5676e7d9c3a3777b9fb6a77f56ea448c";
 var searchword = "Iron man";
-// var queryUrl = "https://gateway.marvel.com:443/v1/public/characters?";
+
 function searchHero(searchword) {
     if (searchword) {
-        var queryUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchword+ "&apikey="+ publicApi;
-        console.log(queryUrl);
-    }
-    
-    fetch(queryUrl)
+        console.log(searchword);
+        baseUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchword + "&apikey=5676e7d9c3a3777b9fb6a77f56ea448c";
+    }console.log(baseUrl);
+    fetch(baseUrl)
     .then(function(response){
         if (!response.ok) {
             throw response.json();
@@ -19,10 +16,16 @@ function searchHero(searchword) {
             })
     .then(function(data){
         console.log(data);
+        // showing data
+        console.log(data.results[0]);
+        // hero id
+        console.log(data.results[2]);
+        // hero description
+        console.log()
+        // 
     })
 
     }
 
-searchHero();
+searchHero(searchword);
 
-var elem = new Foundation.DropdownMenu(element, options);
