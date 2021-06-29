@@ -25,3 +25,4 @@ function searchHero(searchword) {
 
 searchHero();
 
+var elem = new Foundation.DropdownMenu(element, options);
