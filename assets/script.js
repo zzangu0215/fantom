@@ -6,7 +6,7 @@ var searchword = "Iron man";
 // var queryUrl = "https://gateway.marvel.com:443/v1/public/characters?";
 function searchHero(searchword) {
     if (searchword) {
-        var queryUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchword+ "&apikey=ca005abda60b0404cf146a9cb51c1cce40fb094d";
+        var queryUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchword+ "&apikey="+ publicApi;
         console.log(queryUrl);
     }
     
