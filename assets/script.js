@@ -1,5 +1,5 @@
 var baseUrl = "https://gateway.marvel.com:443/v1/public/characters?";
-var publicApi = "ca005abda60b0404cf146a9cb51c1cce40fb094d";
+var publicApi = "5676e7d9c3a3777b9fb6a77f56ea448c";
 // var searchword = $('#search-hero');
 
 var searchword = "Iron man";
