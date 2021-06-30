@@ -9,43 +9,68 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <div class="grid-x grid-padding-x">
-        <h1 class="main-header">FANTOM</h1>
-        <div class="row">
-          <div class="columns">
-            <ul class="dropdown menu" data-dropdown-menu>
-              <li>
-                <a href="#Item-1">Menu</a>
-                <ul class="menu">
-                  <li><a href="#Item-1A">My Heroes</a></li>
-                  <li><a href="#Item-1B">Recent Searches</a></li>
-                  <li><a href="#Item-1C">Popular Series</a></li>
-                  <li><a href="#Item-1D">Online Stores</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </header>
-    <main>
-      <form>
-        <div class="grid-container">
-          <div class="grid-x grid-padding-x">
-            <div class="medium-6 cell">
-              <label>Welcome to FANTOM!
-                <input id="hero-input" type="text" placeholder="TYPE YOUR HERO HERE">
-								<button type="button" class="button warning" id="submit-button">Submit</button>
-              </label>
+    <section class="main-page">
+      <header>
+        <div class="grid-x grid-padding-x">
+          <h1 class="main-header">FANTOM</h1>
+          <div class="row">
+            <div class="columns">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li>
+                  <a href="#Item-1">Menu</a>
+                  <ul class="menu">
+                    <li><a href="#Item-1A">My Heroes</a></li>
+                    <li><a href="#Item-1B">Recent Searches</a></li>
+                    <li><a href="#Item-1C">Popular Series</a></li>
+                    <li><a href="#Item-1D">Online Stores</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </form>
+      </header>
+      <main>
+        <form>
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+              <div class="medium-6 cell">
+                <label>Welcome to FANTOM!
+                  <input id="hero-input" type="text" placeholder="TYPE YOUR HERO HERE">
+                  <button type="button" class="button warning" id="submit-button">Submit</button>
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+  
+        <div id="recommended-hero"></div>
+        <div id="hero-trailer"></div>
+      </main>
+    </section>
 
-      <div id="recommended-hero" class=""></div>
-      <div id="hero-trailer" class=""></div>
-    </main>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      /**
+       * Sample JavaScript code for youtube.search.list
+       * See instructions for running APIs Explorer code samples locally:
+       * https://developers.google.com/explorer-help/guides/code_samples#javascript
+       */
+        var apiKey = "AIzaSyDulmGtXAtdv2UwgdW8GNIU1V_Bo9xDEv0";
+        var url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCvC4D8onUfXzvjTOM-dBfEA&key="+apiKey;
+        var clientId = "106795843179-dolmi6dsd59adguvk0hveoeco1gtaqh4.apps.googleusercontent.com";
+        fetch(url)
+        .then(function(response){
+            if (!response.ok) {
+                throw response.json();
+                }
+                return response.json();
+                })
+        .then(function(data){
+            // showing data
+            console.log(data);
+        })
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
