@@ -15,13 +15,23 @@ function searchHero(searchword) {
             return response.json();
             })
     .then(function(data){
-        console.log(data);
         // showing data
-        console.log(data.results[0]);
-        // hero id
-        console.log(data.results[2]);
-        // hero description
-        console.log()
+        console.log(data);
+        console.log(data.data.results);
+        console.log(data.data.results[0].id);
+        console.log(data.data.results[0].name);
+        console.log(data.data.results[0].description);
+        console.log(data.data.results[0].thumbnail[0].path);
+        console.log(data.data.results[0].thumbnail[0].extension);
+
+        var heroid = data.data.results[0].id;
+        var heroname = data.data.results[0].name;
+        var heroDescription = data.data.results[0].description;
+        var heroThumbnail = data.data.results[0].thumbnail[0].path + data.data.results[0].thumbnail[0].extension;
+        
+
+        
+        
         // 
     })
 
