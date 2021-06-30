@@ -1,17 +1,14 @@
 var baseUrl = "https://gateway.marvel.com:443/v1/public/characters?";
-var publicApi = "ca005abda60b0404cf146a9cb51c1cce40fb094d";
 var heartContainer = document.querySelector("#hearcontianer");
-// var searchword = $('#search-hero');
-
+var publicApi = "5676e7d9c3a3777b9fb6a77f56ea448c";
 var searchword = "Iron man";
-// var queryUrl = "https://gateway.marvel.com:443/v1/public/characters?";
+
 function searchHero(searchword) {
     if (searchword) {
-        var queryUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchword+ "&apikey=ca005abda60b0404cf146a9cb51c1cce40fb094d";
-        console.log(queryUrl);
-    }
-    
-    fetch(queryUrl)
+        console.log(searchword);
+        baseUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchword + "&apikey=5676e7d9c3a3777b9fb6a77f56ea448c";
+    }console.log(baseUrl);
+    fetch(baseUrl)
     .then(function(response){
         if (!response.ok) {
             throw response.json();
@@ -19,12 +16,29 @@ function searchHero(searchword) {
             return response.json();
             })
     .then(function(data){
+        // showing data
         console.log(data);
+        console.log(data.data.results);
+        console.log(data.data.results[0].id);
+        console.log(data.data.results[0].name);
+        console.log(data.data.results[0].description);
+        console.log(data.data.results[0].thumbnail[0].path);
+        console.log(data.data.results[0].thumbnail[0].extension);
+
+        var heroid = data.data.results[0].id;
+        var heroname = data.data.results[0].name;
+        var heroDescription = data.data.results[0].description;
+        var heroThumbnail = data.data.results[0].thumbnail[0].path + data.data.results[0].thumbnail[0].extension;
+        
+
+        
+        
+        // 
     })
 
     }
 
-searchHero();
+searchHero(searchword);
 
 
 
