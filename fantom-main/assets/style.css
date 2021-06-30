@@ -1,0 +1,16 @@
+.heartedContainer {
+  margin: 4%;
+  background-color: aqua;
+  border: 3px solid black;
+  border-radius: 3%;
+}
+
+.btn {
+
+}
+
+.button-expanded {
+  margin: 3%;
+  border-radius: 8%;
+  width: 92%;
+}
