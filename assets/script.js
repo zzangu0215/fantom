@@ -1,13 +1,19 @@
 var baseUrl = "https://gateway.marvel.com:443/v1/public/characters?";
 var heartContainer = document.querySelector("#hearcontianer");
 var publicApi = "5676e7d9c3a3777b9fb6a77f56ea448c";
-//var searchword = "Iron man";
 
 //var submitButton = document.querySelector("#submit-button");
 //var heroInput = document.querySelector("#hero-input");
+var mainPageEl = document.querySelector(".main-page");
+var heroPageEl = document.querySelector(".hero-page");
+
+mainPageEl.style.display = "block";
+heroPageEl.style.display = "none";
+
+
 var heroActualNames = [
     {
-        heroname: "Iron man",
+        heroname: "Iron Man",
         realname: "Tony Stark"
     },
     {
@@ -15,8 +21,8 @@ var heroActualNames = [
         realname: "Steve Rodgers"
     },
     {
-        heroname: "Spider-man",
-        realname: "Tony Stark"
+        heroname: "Spider-Man",
+        realname: "Peter Parker"
     },
     {
         heroname: "Thor",
@@ -93,10 +99,9 @@ function heroPage(data) {
     var appendBlock = 
         `
         <div class="card" style="width: 300px;">
-            <div id="heroname" class="card-divider">${heroname}</div>
+            <h2 id="heroname" class="card-divider">${heroname}</h2>
             <img id="heroThumbnail" src=${thumbnail}>
             <div class="card-section">
-                <h4 id="realName"></h4>
                 <p id="heroDescription">${heroDescription}</p>
                 <div id="embeddedVideo" class="responsive-embed">
                     <iframe width="420" height="315" 
@@ -107,14 +112,18 @@ function heroPage(data) {
             </div>
         </div>`;
 
+    $(".hero-page").append(appendBlock);
+
     for (var i=0; i<heroActualNames.length; i++) {
         if (heroname === heroActualNames[i].heroname) {
-            $("#realName").text() = heroActualNames[i].realname;
+            var realnameBlock = `<h4 id="realName">
+                                    \n${heroActualNames[i].realname}
+                                </h4>`;
+            $("#heroname").append(realnameBlock);
         }
     }
 
-    $("#recommended-hero").append(appendBlock);
-
+    heroPageEl.style.display = "block";
 }
 
 
@@ -125,19 +134,7 @@ $("#submit-button").on("click", function (event) {
     var searchword = $("#hero-input").val().trim();
 
     searchHero(searchword);
+
+    mainPageEl.style.display = "none";
 })
 
-
-
-
-
-function addToHeartedList(){
-    var heartedHero = document.createElement('<a>');
-
-    heartedHero.classList.add("button expanded", "btn");
-
-    heartedHero.setAttribute("data-hero", searchword);
-    heartedHero.textContent = searchword;
-    heartContainer.appendChild(searchword)
-
-}
