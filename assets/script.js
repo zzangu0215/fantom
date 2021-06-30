@@ -3,6 +3,9 @@ var heartContainer = document.querySelector("#hearcontianer");
 var publicApi = "5676e7d9c3a3777b9fb6a77f56ea448c";
 var searchword = "Iron man";
 
+//var submitButton = document.querySelector("#submit-button");
+//var heroInput = document.querySelector("#hero-input");
+
 function searchHero(searchword) {
     if (searchword) {
         console.log(searchword);
@@ -22,8 +25,8 @@ function searchHero(searchword) {
         console.log(data.data.results[0].id);
         console.log(data.data.results[0].name);
         console.log(data.data.results[0].description);
-        console.log(data.data.results[0].thumbnail[0].path);
-        console.log(data.data.results[0].thumbnail[0].extension);
+        //console.log(data.data.results[0].thumbnail[0].path);
+        //console.log(data.data.results[0].thumbnail[0].extension);
 
         var heroid = data.data.results[0].id;
         var heroname = data.data.results[0].name;
@@ -38,7 +41,14 @@ function searchHero(searchword) {
 
     }
 
-searchHero(searchword);
+//searchHero(searchword);
+$("#submit-button").on("click", function (event) {
+    event.preventDefault();
+
+    var searchword = $("#hero-input").val().trim();
+
+    searchHero(searchword);
+})
 
 
 
