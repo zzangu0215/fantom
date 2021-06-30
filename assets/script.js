@@ -7,6 +7,11 @@ var publicApi = "5676e7d9c3a3777b9fb6a77f56ea448c";
 var mainPageEl = document.querySelector(".main-page");
 var heroPageEl = document.querySelector(".hero-page");
 
+var apiKey = "AIzaSyDulmGtXAtdv2UwgdW8GNIU1V_Bo9xDEv0";
+var url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCvC4D8onUfXzvjTOM-dBfEA&key="+apiKey;
+var clientId = "106795843179-dolmi6dsd59adguvk0hveoeco1gtaqh4.apps.googleusercontent.com";
+var srcUrl = 'https://www.youtube.com/embed/';
+
 mainPageEl.style.display = "block";
 heroPageEl.style.display = "none";
 
@@ -138,3 +143,23 @@ $("#submit-button").on("click", function (event) {
     mainPageEl.style.display = "none";
 })
 
+
+fetch(url)
+   .then(function(response){
+       if (!response.ok) {
+           throw response.json();
+           }
+           return response.json();
+           })
+   .then(function(data){
+       
+       console.log(data);
+       data.items.forEach(function(element, index) {
+
+        var appendBlock = 
+            `
+                <iframe width='560' height='315' src="${srcUrl}/${element.id.videoId}" frameborder="0" allowfullscreen></iframe>
+            `;
+        $('body').append(appendBlock);
+       })
+   })      
