@@ -1,4 +1,5 @@
 var baseUrl = "https://gateway.marvel.com:443/v1/public/characters?";
+var heartContainer = document.querySelector("#hearcontianer");
 var publicApi = "5676e7d9c3a3777b9fb6a77f56ea448c";
 var searchword = "Iron man";
 
@@ -39,3 +40,15 @@ function searchHero(searchword) {
 
 searchHero(searchword);
 
+
+
+function addToHeartedList(){
+    var heartedHero = document.createElement('<a>');
+
+    heartedHero.classList.add("button expanded", "btn");
+
+    heartedHero.setAttribute("data-hero", searchword);
+    heartedHero.textContent = searchword;
+    heartContainer.appendChild(searchword)
+
+}
