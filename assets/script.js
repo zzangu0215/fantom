@@ -3,6 +3,9 @@ $(".menu-dropdown").show();
 
 $(".not-main-page").hide();
 
+var currentHero = "";
+var heroList = JSON.parse(localStorage.getItem(currentHero)) || [];
+
 
 var heroActualNames = [
     {
@@ -107,6 +110,7 @@ function heroPage(data) {
                     
                 </div>
             </div>
+            <button id="heart" type="button" class="success button">Save</button>
         </div>`;
 
     $(".hero-page").append(appendBlock);
@@ -183,6 +187,13 @@ function goToMyHeroes() {
     
     $(".hearted-heroes").show();
 }
+
+function storeHero () {
+    var heroList = JSON.parse(localStorage.getItem("savedHeroes")) || [];
+    heroList.push(currentHero);
+    localStorage.setItem("savedHeroes", JSON.stringify(heroList))
+}
+
 
 function goToPopularSeries() {
 
@@ -278,6 +289,7 @@ function goToPopularSeries() {
 
 }
 
+$(".hero-page").on("click", "#heart", storeHero);
 $(".not-main-page").on("click", "#home-button", goToHome);
 
 $("#goto-myheroes").on("click", goToMyHeroes);
@@ -286,9 +298,9 @@ $("#goto-popularseries").on("click", goToPopularSeries);
 $("#submit-button").on("click", function (event) {
     event.preventDefault();
 
-    var searchword = $("#hero-input").val().trim();
+    currentHero = $("#hero-input").val().trim();
 
-    searchHero(searchword);
+    searchHero(currentHero);
 
     $(".main-page").hide();
 })
