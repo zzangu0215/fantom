@@ -1,10 +1,14 @@
 //var submitButton = document.querySelector("#submit-button");
 //var heroInput = document.querySelector("#hero-input");
-var mainPageEl = document.querySelector(".main-page");
-var heroPageEl = document.querySelector(".hero-page");
+// var mainPageEl = document.querySelector(".main-page");
+// var heroPageEl = document.querySelector(".hero-page");
 
-mainPageEl.style.display = "block";
-heroPageEl.style.display = "none";
+// mainPageEl.style.display = "block";
+// heroPageEl.style.display = "none";
+
+$(".main-page").show();
+$(".menu-dropdown").show();
+$(".hero-page").hide();
 
 
 var heroActualNames = [
@@ -29,11 +33,6 @@ var heroActualNames = [
         herovideoId: "v7MGUNV8MxU"
     },
     {
-        heroname: "Ant-man",
-        realname: "Scott Lang",
-        herovideoId: "8_rTIAOohas"
-    },
-    {
         heroname: "Black Widow",
         realname: "Natasha Romanoff",
         herovideoId: "Fp9pNPdNwjI"
@@ -46,11 +45,6 @@ var heroActualNames = [
         heroname: "Hulk",
         realname: "Bruce Banner",
         herovideoId: "xbqNb2PFKKA"
-    },
-    {
-        heroname: "Captain Marvel",
-        realname: "Carol Danvers",
-        herovideoId: "Z1BCujX3pw8"
     },
     {
         heroname: "Black Panther",
@@ -128,20 +122,29 @@ function heroPage(data) {
         }
     }
 
-    heroPageEl.style.display = "block";
+    //heroPageEl.style.display = "block";
+    $(".hero-page").show();
 }
 
 function createHomeButton() {
 
     var homeButtonBlock = 
         `
-        <button type="button" class="button secondary" id="home-button"">HOME</button>
+        <button type="button" class="button secondary" id="home-button">HOME</button>
         `;
 
     $("#not-main-page").append(homeButtonBlock);
 
 }
 
+function goToHome() {
+    
+    console.log("1");
+//     $(this).parent().hide();
+    $(".hero-page").parent().hide();
+    $(".main-page").show();
+
+}
 
 //searchHero(searchword);
 $("#submit-button").on("click", function (event) {
@@ -151,13 +154,21 @@ $("#submit-button").on("click", function (event) {
 
     searchHero(searchword);
 
-    mainPageEl.style.display = "none";
+    //mainPageEl.style.display = "none";
+    $(".main-page").hide();
 })
 
-$("#home-button").on("click", function (event) {
-    //event.preventDefault();
+// var homeBtnEl = document.querySelector("#home-button")
+// homeBtnEl.addEventListener("click", goToHome());
+
+$("#home-button").on("click", "button", function (event) {
+    event.preventDefault();
     console.log("1");
 
-    mainPageEl.style.display = "block";
-    heroPageEl.style.display = "none";
+    goToHome();
+    // $(".main-page").hide();
+    // $(".hero-page").show();
+    // mainPageEl.style.display = "block";
+    // heroPageEl.style.display = "none";
 })
+
