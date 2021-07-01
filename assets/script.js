@@ -1,16 +1,7 @@
-var baseUrl = "https://gateway.marvel.com:443/v1/public/characters?";
-var heartContainer = document.querySelector("#hearcontianer");
-var publicApi = "5676e7d9c3a3777b9fb6a77f56ea448c";
-
 //var submitButton = document.querySelector("#submit-button");
 //var heroInput = document.querySelector("#hero-input");
 var mainPageEl = document.querySelector(".main-page");
 var heroPageEl = document.querySelector(".hero-page");
-
-var apiKey = "AIzaSyDulmGtXAtdv2UwgdW8GNIU1V_Bo9xDEv0";
-var url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCvC4D8onUfXzvjTOM-dBfEA&key="+apiKey;
-var clientId = "106795843179-dolmi6dsd59adguvk0hveoeco1gtaqh4.apps.googleusercontent.com";
-var srcUrl = 'https://www.youtube.com/embed/';
 
 mainPageEl.style.display = "block";
 heroPageEl.style.display = "none";
@@ -70,9 +61,15 @@ var heroActualNames = [
 
 
 function searchHero(searchword) {
+
+    var marvelAPI = "5676e7d9c3a3777b9fb6a77f56ea448c";
+
     if (searchword) {
         //console.log(searchword);
-        baseUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchword + "&apikey=5676e7d9c3a3777b9fb6a77f56ea448c";
+        var baseUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" 
+                        + searchword 
+                        + "&apikey="
+                        + marvelAPI;
     }
     //console.log(baseUrl);
     fetch(baseUrl)
@@ -86,29 +83,17 @@ function searchHero(searchword) {
         
         heroPage(data);        
            
-        // 
     })
 
 }
 
 function heroPage(data) {
-    // showing data
-    console.log(data);
-    console.log(data.data.results);
-    console.log(data.data.results[0].id);
-    console.log(data.data.results[0].name);
-    console.log(data.data.results[0].description);
-    console.log(data.data.results[0].thumbnail.path + "/standard_fantastic.jpg");
-    console.log(data.data.results[0].urls[2].type)
-    console.log(data.data.results[0].urls[2].url);
-    //console.log(data.data.results[0].thumbnail[0].path);
-    //console.log(data.data.results[0].thumbnail[0].extension);
+    
+    createHomeButton();
 
-    //var heroid = data.data.results[0].id;
     var heroname = data.data.results[0].name;
     var heroDescription = data.data.results[0].description;
     var thumbnail = data.data.results[0].thumbnail.path + "/standard_fantastic.jpg";
-    //var heroThumbnail = data.data.results[0].thumbnail[0].path + data.data.results[0].thumbnail[0].extension;
 
     var appendBlock = 
         `
@@ -118,10 +103,7 @@ function heroPage(data) {
             <div class="card-section">
                 <p id="heroDescription">${heroDescription}</p>
                 <div id="embeddedVideo" class="responsive-embed">
-                    <iframe width="420" height="315" 
-                        src="https://www.youtube.com/embed/${herovideoId}" 
-                        frameborder="0" allowfullscreen>
-                    </iframe>
+                    
                 </div>
             </div>
         </div>`;
@@ -134,11 +116,30 @@ function heroPage(data) {
                                     \n${heroActualNames[i].realname}
                                 </h4>`;
             $("#heroname").append(realnameBlock);
-            var heroVideoid = heroActualNames[i].herovideoId;
+
+            var youtubeBlock = 
+            `
+            <iframe width="420" height="315" 
+                src="https://www.youtube.com/embed/${heroActualNames[i].herovideoId}" 
+                frameborder="0" allowfullscreen>
+            </iframe>`
+
+            $("#embeddedVideo").append(youtubeBlock);
         }
     }
 
     heroPageEl.style.display = "block";
+}
+
+function createHomeButton() {
+
+    var homeButtonBlock = 
+        `
+        <button type="button" class="button secondary" id="home-button"">HOME</button>
+        `;
+
+    $("#not-main-page").append(homeButtonBlock);
+
 }
 
 
@@ -153,23 +154,10 @@ $("#submit-button").on("click", function (event) {
     mainPageEl.style.display = "none";
 })
 
+$("#home-button").on("click", function (event) {
+    //event.preventDefault();
+    console.log("1");
 
-fetch(url)
-   .then(function(response){
-       if (!response.ok) {
-           throw response.json();
-           }
-           return response.json();
-           })
-   .then(function(data){
-       
-       console.log(data);
-       data.items.forEach(function(element, index) {
-
-        var appendBlock = 
-            `
-                <iframe width='560' height='315' src="${srcUrl}/${element.id.videoId}" frameborder="0" allowfullscreen></iframe>
-            `;
-        $('body').append(appendBlock);
-       })
-   })      
+    mainPageEl.style.display = "block";
+    heroPageEl.style.display = "none";
+})
