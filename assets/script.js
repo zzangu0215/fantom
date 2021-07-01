@@ -1,11 +1,3 @@
-//var submitButton = document.querySelector("#submit-button");
-//var heroInput = document.querySelector("#hero-input");
-// var mainPageEl = document.querySelector(".main-page");
-// var heroPageEl = document.querySelector(".hero-page");
-
-// mainPageEl.style.display = "block";
-// heroPageEl.style.display = "none";
-
 $(".main-page").show();
 $(".menu-dropdown").show();
 
@@ -54,19 +46,32 @@ var heroActualNames = [
     },
 ]
 
+var heroDescription = [ 
+    {
+        name: "Black Widow",
+        description: "Deadly one-woman fighting force. An expert in many forms of martial arts, she is also a skilled gymnast and possesses superhuman strength, speed, agility, and endurance."
+    },
+    {
+        name: "Black Panther",
+        description: "The title held by T'Challa, a member of the royal family of the fictional African country of Wakanda. After the death of his father, T'Challa claimed the throne and the role of Black Panther. He was exposed to a mystical herb that enhanced his strength and agility to near-superhuman levels."
+    },
+    {
+        name: "Hawkeye",
+        description: "The man who would become known as Hawkeye was born Clint Barton. Orphaned at an early age, he joined the circus and apprenticed himself to the Swordsman, a performer who specialized in tricks with blades."
+    } 
+]
 
 function searchHero(searchword) {
 
     var marvelAPI = "5676e7d9c3a3777b9fb6a77f56ea448c";
 
     if (searchword) {
-        //console.log(searchword);
+
         var baseUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" 
                         + searchword 
                         + "&apikey="
                         + marvelAPI;
     }
-    //console.log(baseUrl);
     fetch(baseUrl)
     .then(function(response){
         if (!response.ok) {
@@ -88,6 +93,7 @@ function heroPage(data) {
 
     var heroname = data.data.results[0].name;
     var heroDescription = data.data.results[0].description;
+
     var thumbnail = data.data.results[0].thumbnail.path + "/standard_fantastic.jpg";
 
     var appendBlock = 
@@ -123,7 +129,6 @@ function heroPage(data) {
         }
     }
 
-    //heroPageEl.style.display = "block";
     $(".hero-page").show();
 }
 
@@ -141,7 +146,7 @@ function createHomeButton() {
 function goToHome() {
     
     console.log("1");
-//     $(this).parent().hide();
+
     $(this).parent().hide();
     $(this).parent().empty();
     $(".main-page").show();
@@ -149,9 +154,42 @@ function goToHome() {
 
 }
 
+function goToMyHeroes() {
+
+    createHomeButton();
+
+    $(".main-page").hide();
+    $(".hero-page").hide();
+    $(".recent-searches").hide();
+    $(".popular-series").hide();
+
+    var myHeroPageBlock = 
+        `
+            <header>
+                <div class="grid-x grid-padding-x">
+                    <h1 class="main-header">MY HERO</h1>
+                </div>
+            </header>
+            <body>
+                <div id="heartContainer" class="flex-container flex-dir-column heartedContainer">
+                    <a href="#0" class="button expanded btn">Spider-Man</a>
+                    <a href="#0" class="button expanded btn">Black Panther</a>
+                    <a href="#0" class="button expanded btn">Iron Man</a>
+                </div>
+            </body>
+        `;
+
+    $(".hearted-heroes").append(myHeroPageBlock);
+    
+    $(".hearted-heroes").show();
+}
+
+
+
 $(".not-main-page").on("click", "#home-button", goToHome);
 
-//searchHero(searchword);
+$("#goto-myheroes").on("click", goToMyHeroes);
+
 $("#submit-button").on("click", function (event) {
     event.preventDefault();
 
@@ -159,12 +197,8 @@ $("#submit-button").on("click", function (event) {
 
     searchHero(searchword);
 
-    //mainPageEl.style.display = "none";
     $(".main-page").hide();
 })
 
-
-// var homeBtnEl = document.querySelector("#home-button")
-// homeBtnEl.addEventListener("click", goToHome());
 
 
