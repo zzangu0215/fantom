@@ -8,7 +8,8 @@
 
 $(".main-page").show();
 $(".menu-dropdown").show();
-$(".hero-page").hide();
+
+$(".not-main-page").hide();
 
 
 var heroActualNames = [
@@ -133,7 +134,7 @@ function createHomeButton() {
         <button type="button" class="button secondary" id="home-button">HOME</button>
         `;
 
-    $("#not-main-page").append(homeButtonBlock);
+    $(".not-main-page").append(homeButtonBlock);
 
 }
 
@@ -141,10 +142,14 @@ function goToHome() {
     
     console.log("1");
 //     $(this).parent().hide();
-    $(".hero-page").parent().hide();
+    $(this).parent().hide();
+    $(this).parent().empty();
     $(".main-page").show();
+    $("#hero-input").val("");
 
 }
+
+$(".not-main-page").on("click", "#home-button", goToHome);
 
 //searchHero(searchword);
 $("#submit-button").on("click", function (event) {
@@ -158,17 +163,8 @@ $("#submit-button").on("click", function (event) {
     $(".main-page").hide();
 })
 
+
 // var homeBtnEl = document.querySelector("#home-button")
 // homeBtnEl.addEventListener("click", goToHome());
 
-$("#home-button").on("click", "button", function (event) {
-    event.preventDefault();
-    console.log("1");
-
-    goToHome();
-    // $(".main-page").hide();
-    // $(".hero-page").show();
-    // mainPageEl.style.display = "block";
-    // heroPageEl.style.display = "none";
-})
 
