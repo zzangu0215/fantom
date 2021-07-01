@@ -19,27 +19,33 @@ heroPageEl.style.display = "none";
 var heroActualNames = [
     {
         heroname: "Iron Man",
-        realname: "Tony Stark"
+        realname: "Tony Stark",
+        herovideoId: "f_h95mEd4TI"
     },
     {
         heroname: "Captain America",
-        realname: "Steve Rodgers"
+        realname: "Steve Rodgers",
+        herovideoId: "43NWzay3W4s"
     },
     {
         heroname: "Spider-Man",
-        realname: "Peter Parker"
+        realname: "Peter Parker",
+        herovideoId: "LFoz8ZJWmPs"
     },
     {
         heroname: "Thor",
-        realname: "Thor Odinson"
+        realname: "Thor Odinson",
+        herovideoId: "v7MGUNV8MxU"
     },
     {
         heroname: "Ant-man",
-        realname: "Scott Lang"
+        realname: "Scott Lang",
+        herovideoId: "8_rTIAOohas"
     },
     {
         heroname: "Black Widow",
-        realname: "Natasha Romanoff"
+        realname: "Natasha Romanoff",
+        herovideoId: "Fp9pNPdNwjI"
     },
     {
         heroname: "Hawkeye",
@@ -47,15 +53,18 @@ var heroActualNames = [
     },
     {
         heroname: "Hulk",
-        realname: "Bruce Banner"
+        realname: "Bruce Banner",
+        herovideoId: "xbqNb2PFKKA"
     },
     {
         heroname: "Captain Marvel",
-        realname: "Carol Danvers"
+        realname: "Carol Danvers",
+        herovideoId: "Z1BCujX3pw8"
     },
     {
         heroname: "Black Panther",
-        realname: "T'Challa"
+        realname: "T'Challa",
+        herovideoId: "xjDjIWPwcPU"
     },
 ]
 
@@ -110,7 +119,7 @@ function heroPage(data) {
                 <p id="heroDescription">${heroDescription}</p>
                 <div id="embeddedVideo" class="responsive-embed">
                     <iframe width="420" height="315" 
-                        src="https://www.youtube.com/embed/PAWjr7qo6Ds" 
+                        src="https://www.youtube.com/embed/${herovideoId}" 
                         frameborder="0" allowfullscreen>
                     </iframe>
                 </div>
@@ -125,6 +134,7 @@ function heroPage(data) {
                                     \n${heroActualNames[i].realname}
                                 </h4>`;
             $("#heroname").append(realnameBlock);
+            var heroVideoid = heroActualNames[i].herovideoId;
         }
     }
 
