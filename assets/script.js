@@ -151,8 +151,12 @@ $("#submit-button").on("click", function (event) {
 
 // } 
 
-function storeHero (searchword) {
-    var heartedHeroes = JSON.parse(localStorage.getItem("heartedHeroes", []))
-    localStorage.setItem("heartedHeroes", JSON.stringify(searchword))
-}
+
+    var heartedList = []
+
+
+    var heartedHeroes = JSON.parse(localStorage.getItem("heartedList")) || [];
+    localStorage.setItem("heartedHeroes", JSON.stringify(searchword));
+    heartedHeroes.push(searchword);
+    localStorage.setItem("searchword", JSON.stringify(heartedHeroes));
 
