@@ -52,6 +52,7 @@ var heroActualNames = [
 function searchHero(searchword) {
     if (searchword) {
         //console.log(searchword);
+        storeHero(searchword);
         baseUrl = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchword + "&apikey=5676e7d9c3a3777b9fb6a77f56ea448c";
     }
     //console.log(baseUrl);
@@ -65,7 +66,7 @@ function searchHero(searchword) {
     .then(function(data){
         
         heroPage(data);        
-           
+    
         // 
     })
 
@@ -129,15 +130,29 @@ $("#submit-button").on("click", function (event) {
 
 
 
+// var heart = document.querySelector('#heart'); 
+
+// heart.addEventListener('click', function(event) {
+//     event.preventDefault();
+//     storeHero(searchword);
+//     addToHeartedList(searchword);
+// })
 
 
-function addToHeartedList(){
-    var heartedHero = document.createElement('<a>');
 
-    heartedHero.classList.add("button expanded", "btn");
+// function addToHeartedList(){
+//     var heartedHero = document.createElement('<a>');
 
-    heartedHero.setAttribute("data-hero", searchword);
-    heartedHero.textContent = searchword;
-    heartContainer.appendChild(searchword)
+//     heartedHero.classList.add("button expanded", "btn");
 
+//     heartedHero.setAttribute("data-hero", searchword);
+//     heartedHero.textContent = searchword;
+//     heartContainer.appendChild(searchword)
+
+// } 
+
+function storeHero (searchword) {
+    var heartedHeroes = JSON.parse(localStorage.getItem("heartedHeroes", []))
+    localStorage.setItem("heartedHeroes", JSON.stringify(searchword))
 }
+
