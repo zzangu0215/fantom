@@ -184,11 +184,104 @@ function goToMyHeroes() {
     $(".hearted-heroes").show();
 }
 
+function goToPopularSeries() {
 
+    createHomeButton();
+
+    $(".main-page").hide();
+    $(".hero-page").hide();
+    $(".recent-searches").hide();
+    $(".hearted-heroes").hide();
+
+    var popularHeroes = [
+        {
+            heroname: "The Avengers",
+            realname: "The Avengers",
+            thumbnail: "https://upload.wikimedia.org/wikipedia/en/2/2b/Avengers_%28Marvel_Comics%29_vol_3_num_38.jpg",
+            description: "Earth's Mightiest Heroes joined forces to take on threats that were too big for any one hero to tackle. With a roster that has included Captain America, Iron Man, Ant-Man, Hulk, Thor, Wasp and dozens more over the years, the Avengers have come to be regarded as Earth's No. 1 team.",
+            youtube: "https://www.youtube.com/embed/TcMBFSGVi1c"
+        },
+        {
+            heroname: "Spider-Man",
+            realname: "Peter Parker",
+            thumbnail: "https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png",
+            description: "Bitten by a radioactive spider, high school student Peter Parker gained the speed, strength and powers of a spider. Adopting the name Spider-Man, Peter hoped to start a career using his new abilities. Taught that with great power comes great responsibility, Spidey has vowed to use his powers to help people.",
+            youtube: "https://www.youtube.com/embed/Nt9L1jCKGnE"
+        },
+        {
+            heroname: "Captain America",
+            realname: "Steve Rogers",
+            thumbnail: "https://upload.wikimedia.org/wikipedia/en/9/91/CaptainAmerica109.jpg",
+            description: "Vowing to serve his country any way he could, young Steve Rogers took the super soldier serum to become America's one-man army. Fighting for the red, white and blue for over 60 years, Captain America is the living, breathing symbol of freedom and liberty.",
+            youtube: "https://www.youtube.com/embed/dKrVegVI0Us"
+        },
+        {
+            heroname: "Iron Man",
+            realname: "Tony Stark",
+            thumbnail: "https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png",
+            description: "Wounded, captured and forced to build a weapon by his enemies, billionaire industrialist Tony Stark instead created an advanced suit of armor to save his life and escape captivity. Now with a new outlook on life, Tony uses his money and intelligence to make the world a safer, better place as Iron Man.",
+            youtube: "https://www.youtube.com/embed/Ke1Y3P9D0Bc"
+        }
+    ]
+
+    var popularSeriesBlock = 
+            `
+            <div class="row">
+                <div class="columns">
+                    <h2>Popular Series</h2>
+                    <p>These are a few Popular series in the marvel universe.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="columns">
+                    <ul id="popular-lists" class="accordion" data-allow-all-closed="true" data-accordion>
+                    </ul>
+                </div>
+            </div>
+            `
+    
+    $(".popular-series").append(popularSeriesBlock);
+
+    for (var i=0; i<popularHeroes.length; i++) {
+
+        var popularBlock = 
+            `
+            <li class="accordion-item is-active" data-accordion-item>
+                <a href="#" class="accordion-title">${popularHeroes[i].heroname}</a>
+                <div class="accordion-content" data-tab-content>
+                    <div class="card" style="width: 300px;">
+                        <div id="popular-hero${i}" class="card-divider">
+                            ${popularHeroes[i].heroname}
+                        </div>
+                        <img id="popular-thumb${i}"
+                            src=${popularHeroes[i].thumbnail}>
+                        <div class="card-section">
+                            <h4 id="popular-real${i}">${popularHeroes[i].realname}</h4>
+                            <p id="popular-descrip${i}">${popularHeroes[i].description}
+                            </p>
+                            <div id="popular-embed${i}" class="responsive-embed">
+                                <iframe width="420" height="315" src=${popularHeroes[i].youtube} frameborder="0"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            `
+        
+            $("#popular-lists").append(popularBlock);
+
+    }
+
+    $(".popular-series").show().foundation();
+
+}
 
 $(".not-main-page").on("click", "#home-button", goToHome);
 
 $("#goto-myheroes").on("click", goToMyHeroes);
+$("#goto-popularseries").on("click", goToPopularSeries);
 
 $("#submit-button").on("click", function (event) {
     event.preventDefault();
