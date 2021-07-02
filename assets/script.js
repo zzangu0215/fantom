@@ -325,8 +325,8 @@ function goToPopularSeries() {
     var popularSeriesBlock = 
             `
             <div class="row">
-                <div class="columns">
-                    <h2>Popular Series</h2>
+                <div class="columns main-header">
+                    <h2 class="popular-header">Popular Series</h2>
                     <p>These are a few Popular series in the marvel universe.</p>
                 </div>
             </div>
