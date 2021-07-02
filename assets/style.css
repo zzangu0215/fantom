@@ -12,6 +12,9 @@
 .menu input,
 .menu select {
   margin-bottom: 1px;
+  font-style: Tourney;
+  font-weight: bold;
+  font-size: 1em;
 }
 label {
   color: black;
@@ -148,9 +151,53 @@ body {
   font-family: Tourney;
 }
 
+#saved-hero {
+  background-color:rgb(201, 73, 201);
+  display:inline-block;
+  padding:0.7em 1.7em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-size: 2em;
+  font-family: 'Comic Sans MS';
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:#FFFFFF;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  position:relative;
+}
+
+#searched-hero {
+  background-color:rgb(201, 73, 201);
+  display:inline-block;
+  padding:0.7em 1.7em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-size: 2em;
+  font-family: 'Comic Sans MS';
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:#FFFFFF;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  position:relative;
+}
+
+#saved-hero:active{
+  box-shadow: inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+}
+
+#searched-hero:active{
+  box-shadow: inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+}
+
 h1 {
   font-weight: bold;
-  font-size: 3em;
+  font-size: 4em;
   font-family: "Tourney";
 }
 h2 {
