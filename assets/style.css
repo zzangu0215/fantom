@@ -2,6 +2,11 @@
 .menu a {
   padding: 0.7rem 4rem;
 }
+.menu, .menu a {
+  font-style: Tourney;
+  font-weight: bold;
+  font-size: 1em;
+}
 .menu a,
 .menu button,
 .menu input,
@@ -25,6 +30,11 @@ body {
   background-repeat: no-repeat;
   opacity: .95;
   max-width: 100%;
+}
+.home-button {
+  font-size: 1.2em;
+  font-family: Tourney;
+  font-weight: bold;
 }
 .main-page {
   /* background-image: url(https://mobileimages.lowes.com/productimages/457cc84f-275c-4e46-97fd-d43b9b717a9d/15634766.jpg); */
@@ -57,6 +67,71 @@ body {
   margin-left: 10%;
   margin-right: 10%;
 }
+.accordion-title {
+  position: relative;
+  display: block;
+  padding: 1.25rem 1rem;
+  border: 1px solid #e6e6e6;
+  border-bottom: 0;
+  font-size: .75rem;
+  line-height: 1;
+  color: #1779ba;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Yomogi';
+  font-weight: bold;
+}
+
+#popular-hero0 {
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Yomogi';
+  font-weight: bold;
+}
+#popular-hero1 {
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Yomogi';
+  font-weight: bold;
+}
+#popular-hero2 {
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Yomogi';
+  font-weight: bold;
+}
+#popular-hero3 {
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Yomogi';
+  font-weight: bold;
+}
+
+#popular-real0 {
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Yomogi';
+  font-weight: bold;
+}
+#popular-real1 {
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Yomogi';
+  font-weight: bold;
+}
+#popular-real2 {
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Yomogi';
+  font-weight: bold;
+}
+#popular-real3 {
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Yomogi';
+  font-weight: bold;
+}
+
 #herocard {
   background-color: rgb(145, 135, 135);
 }
