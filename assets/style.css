@@ -23,7 +23,7 @@ body {
   background-image: url(https://mobileimages.lowes.com/productimages/457cc84f-275c-4e46-97fd-d43b9b717a9d/15634766.jpg);
   justify-content: center;
   background-repeat: no-repeat;
-  opacity: .85;
+  opacity: .95;
   max-width: 100%;
 }
 .main-page {
@@ -36,10 +36,18 @@ body {
   border: 3px solid black;
   border-radius: 3%;
 }
+.main-header {
+  background-color: grey;
+}
 /* .btn {
   margin-bottom: 1px;
   padding: 0.7rem 4rem;
 } */
+.popular-header {
+  font-size: 3em;
+  font-weight: bold;
+  font-family: Tourney;
+}
 .button-expanded {
   margin: 3%;
   border-radius: 8%;
@@ -49,10 +57,17 @@ body {
   margin-left: 10%;
   margin-right: 10%;
 }
+h1 {
+  font-weight: bold;
+  font-size: 3em;
+  font-family: "Tourney";
+}
 h2 {
   text-align: center;
 }
 p {
+  font-family: Yomogi;
+  font-weight: bold;
   text-align: center;
 }
 .callout.secondary {
