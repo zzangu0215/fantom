@@ -2,6 +2,7 @@ $(".main-page").show();
 $(".menu-dropdown").show();
 //fetchYouTube();
 
+$(".home-button").hide();
 $(".not-main-page").hide();
 
 var currentHero = "";
@@ -115,21 +116,23 @@ function fetchYouTube() {
 
 }
 
-function createHomeButton() {
+// function createHomeButton() {
 
-    var homeButtonBlock = 
-        `
-        <button type="button" class="button secondary" id="home-button">HOME</button>
-        `;
+//     var homeButtonBlock = 
+//         `
+//         <button type="button" class="button secondary" id="home-button">HOME</button>
+//         `;
 
-    $(".not-main-page").append(homeButtonBlock);
+//     $(".not-main-page").append(homeButtonBlock);
 
-}
+// }
 
 function goToHome() {
 
     //$(this).parent().hide();
-    $(this).parent().empty();
+    // $(this).parent().empty();
+    $(".home-button").hide();
+    $(".not-main-page").empty();
     $(".main-page").show();
     $("#hero-input").val("");
 
@@ -138,7 +141,8 @@ function goToHome() {
 function goToHeroPage(data) {
     
     $(".not-main-page").empty();
-    createHomeButton();
+    $(".home-button").show();
+    // createHomeButton();
 
     var heroname = data.data.results[0].name;
     var heroDescription = data.data.results[0].description;
@@ -186,7 +190,8 @@ function goToHeroPage(data) {
 function goToMyHeroes() {
 
     $(".not-main-page").empty();
-    createHomeButton();
+    $(".home-button").show();
+    // createHomeButton();
 
     $(".main-page").hide();
     $(".hero-page").hide();
@@ -229,7 +234,8 @@ function goToMyHeroes() {
 function goToRecentSearchesPage() {
 
     $(".not-main-page").empty();
-    createHomeButton();
+    $(".home-button").show();
+    // createHomeButton();
 
     $(".main-page").hide();
     $(".hero-page").hide();
@@ -273,7 +279,8 @@ function goToRecentSearchesPage() {
 function goToPopularSeries() {
 
     $(".not-main-page").empty();
-    createHomeButton();
+    $(".home-button").show();
+    // createHomeButton();
 
     $(".main-page").hide();
     $(".hero-page").hide();
@@ -381,19 +388,23 @@ function storeRecentSearch () {
 
 function getSavedHeroes() {
 
-    $(this).parent().parent().empty();
+    // $(this).parent().parent().empty();
+    // $(".not-main-page").empty();
     var savedHero = $(this).text();
 
     searchHero(savedHero);
+    $(".not-main-page").empty();
 
 }
 
 function getSearchedHeroes() {
 
-    $(this).parent().parent().empty();
+    // $(this).parent().parent().empty();
+    // $(".not-main-page").empty();
     var searchedHero = $(this).text();
 
     searchHero(searchedHero);
+    $(".not-main-page").empty();
 
 }
 
@@ -401,7 +412,8 @@ $(".hero-page").on("click", "#heart", storeHero);
 $(".recent-searches").on("click", "#searched-hero", getSavedHeroes);
 $(".hearted-heroes").on("click", "#saved-hero", getSearchedHeroes);
 
-$(".not-main-page").on("click", "#home-button", goToHome);
+// $(".not-main-page").on("click", "#home-button", goToHome);
+$("#home-button").on("click", goToHome);
 
 $("#goto-myheroes").on("click", goToMyHeroes);
 $("#goto-popularseries").on("click", goToPopularSeries);
