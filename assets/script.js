@@ -135,6 +135,7 @@ function goToHome() {
     $(".not-main-page").empty();
     $(".main-page").show();
     $("#hero-input").val("");
+    $('.small-8').removeClass("small-8").addClass("small-10");
 
 }
 
@@ -194,6 +195,7 @@ function goToMyHeroes() {
     // createHomeButton();
 
     $(".main-page").hide();
+    $('.small-10').removeClass("small-10").addClass("small-8");
     $(".hero-page").hide();
     $(".recent-searches").hide();
     $(".popular-series").hide();
@@ -238,6 +240,7 @@ function goToRecentSearchesPage() {
     // createHomeButton();
 
     $(".main-page").hide();
+    $('.small-10').removeClass("small-10").addClass("small-8");
     $(".hero-page").hide();
     $(".hearted-heroes").hide();
     $(".popular-series").hide();
@@ -283,6 +286,7 @@ function goToPopularSeries() {
     // createHomeButton();
 
     $(".main-page").hide();
+    $('.small-10').removeClass("small-10").addClass("small-8");
     $(".hero-page").hide();
     $(".recent-searches").hide();
     $(".hearted-heroes").hide();
@@ -428,4 +432,5 @@ $("#submit-button").on("click", function (event) {
     storeRecentSearch();
 
     $(".main-page").hide();
+    $('.small-10').removeClass("small-10").addClass("small-8");
 })
