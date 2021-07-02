@@ -1,46 +1,61 @@
-:root {
-  --light:
-}
-
-
-
-.menu .button, .menu a {
-  
+.menu .button,
+.menu a {
   padding: 0.7rem 4rem;
-
 }
-
-.menu a, .menu button, .menu input, .menu select {
+.menu a,
+.menu button,
+.menu input,
+.menu select {
   margin-bottom: 1px;
 }
-
 label {
   color: black;
-  -webkit-text-fill-color: white; 
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
+  font-size: 2.875rem;
 }
-
-.main-page {
+#hero-input {
+  font-family:Georgia, 'Times New Roman', Times, serif ;
+  color: black;
+}
+body {
   background-image: url(https://mobileimages.lowes.com/productimages/457cc84f-275c-4e46-97fd-d43b9b717a9d/15634766.jpg);
+  justify-content: center;
+  background-repeat: no-repeat;
+  opacity: .85;
+  max-width: 100%;
+}
+.main-page {
+  /* background-image: url(https://mobileimages.lowes.com/productimages/457cc84f-275c-4e46-97fd-d43b9b717a9d/15634766.jpg); */
   background-color: grey;
 }
-
 .heartedContainer {
   margin: 4%;
   background-color: aqua;
   border: 3px solid black;
   border-radius: 3%;
 }
-
 /* .btn {
   margin-bottom: 1px;
   padding: 0.7rem 4rem;
 } */
-
 .button-expanded {
   margin: 3%;
   border-radius: 8%;
   width: 92%;
 }
-
+.card {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+h2 {
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+.callout.secondary {
+  background-color: #c1bfbf;
+  color: #0a0a0a;
+}
