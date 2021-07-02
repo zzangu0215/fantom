@@ -45,9 +45,9 @@ body {
 }
 .heartedContainer {
   margin: 4%;
-  background-color: aqua;
-  border: 3px solid black;
-  border-radius: 3%;
+  background-color: #8000ff40;
+  border: 3px solid rgb(116, 27, 204);
+  border-radius: 2%;
 }
 .main-header {
   background-color: grey;
