@@ -1,4 +1,7 @@
 var heart = document.querySelector('#heart'); 
+var recentSearchList = [];
+
+
 heart.addEventListener('click', function() {
     var searchword = $("#hero-input").val().trim();
     storeHero(searchword);
@@ -11,7 +14,9 @@ function addToHeartedList(){
     heartedHero.textContent = searchword;
     heartContainer.appendChild(searchword)
 } 
-function storeHero (searchword) {
-    var heartedHeroes = JSON.parse(localStorage.getItem("heartedHeroes", []))
-    localStorage.setItem("heartedHeroes", JSON.stringify(searchword))
+
+function storeRecentSearch () {
+    recentSearchList = JSON.parse(localStorage.getItem("recentlySearched")) || [];
+    recentSearchList.push(currentHero);
+    localStorage.setItem("recentlySearched", JSON.stringify(recentSearchList))
 }

@@ -4,7 +4,7 @@ $(".menu-dropdown").show();
 $(".not-main-page").hide();
 
 var currentHero = "";
-var heroList = JSON.parse(localStorage.getItem(currentHero)) || [];
+var heroList = [];
 
 
 var heroActualNames = [
@@ -189,7 +189,7 @@ function goToMyHeroes() {
 }
 
 function storeHero () {
-    var heroList = JSON.parse(localStorage.getItem("savedHeroes")) || [];
+    heroList = JSON.parse(localStorage.getItem("savedHeroes")) || [];
     heroList.push(currentHero);
     localStorage.setItem("savedHeroes", JSON.stringify(heroList))
 }
@@ -301,6 +301,7 @@ $("#submit-button").on("click", function (event) {
     currentHero = $("#hero-input").val().trim();
 
     searchHero(currentHero);
+    storeRecentSearch ()
 
     $(".main-page").hide();
 })
