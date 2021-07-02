@@ -57,6 +57,22 @@ body {
   margin-left: 10%;
   margin-right: 10%;
 }
+#herocard {
+  background-color: rgb(145, 135, 135);
+}
+#heroname {
+  font-size: 2.5em;
+  font-weight: bold;
+  font-family: Tourney;
+
+  background-color: rgb(104, 97, 97);
+}
+#realName {
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: Tourney;
+}
+
 h1 {
   font-weight: bold;
   font-size: 3em;
@@ -65,6 +81,7 @@ h1 {
 h2 {
   text-align: center;
 }
+
 p {
   font-family: Yomogi;
   font-weight: bold;
