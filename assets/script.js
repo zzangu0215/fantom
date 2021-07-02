@@ -188,6 +188,7 @@ function goToHome() {
 
 function goToMyHeroes() {
 
+    $(".not-main-page").empty();
     createHomeButton();
 
     $(".main-page").hide();
@@ -225,6 +226,7 @@ function storeHero () {
 
 function goToPopularSeries() {
 
+    $(".not-main-page").empty();
     createHomeButton();
 
     $(".main-page").hide();
