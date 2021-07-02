@@ -9,35 +9,36 @@
     <title>Document</title>
   </head>
   <body>
-    <section class="menu-dropdown">
-      <div class="row">
-        <div class="columns">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li>
-              <a href="#Item-1">Menu</a>
-              <ul class="menu">
-                <li><button type="button" class="button primary" id="goto-myheroes">My Heroes</button></li>
-                <li><button type="button" class="button primary" id="goto-recentsearches">Recent Searches</button></li>
-                <li><button type="button" class="button primary" id="goto-popularseries">Popular Series</button></li>
-                <li><button type="button" class="button primary" id="goto-onlinestores">Online Stores</button></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <section class="main-page">
-      <header>
-        <div class="grid-x grid-padding-x">
-          <h1 class="main-header">FANTOM</h1>
-        </div>
-      </header>
+      <div id='container' class="grid-x grid-padding-x callout clearfix">  
+        <header class="small-10  ">
+          <div class="grid-x grid-padding-x">
+          <h1 class="main-header float-center">FANTOM</h1>
+          </div>
+        </header>
+        <section class="menu-dropdown small-2">
+          <div class="row">
+            <div class="columns">
+              <ul class="dropdown menu float-right" data-dropdown-menu>
+                <li>
+                  <a href="#Item-1">Menu</a>
+                  <ul ul class="menu">
+                    <li><button type="button" class="button primary" id="goto-myheroes">My Heroes</button></li>
+                    <li><button type="button" class="button primary" id="goto-recentsearches">Recent Searches</button></li>
+                    <li li><button type="button" class="button primary" id="goto-popularseries">Popular Series</button></li>
+                    <li><button type="button" class="button primary" id="goto-onlinestores">Online Stores</button></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>  
+      </div>
       <main>
         <form>
           <div class="grid-container">
             <div class="grid-x grid-padding-x">
-              <div class="medium-6 cell">
+              <div class="cell">
                 <label>Welcome to FANTOM!
                   <input id="hero-input" type="text" placeholder="TYPE YOUR HERO HERE">
                   <button type="button" class="button warning" id="submit-button">Submit</button>
@@ -47,37 +48,16 @@
           </div>
         </form>
         <div id="recommended-hero"></div>
-        <div id="hero-trailer"></div>
+        <div id="hero-trailer" class="grid-x grid-padding-x grid-container"></div>
       </main>
     </section>
-
     <section class="not-main-page hero-page"></section>
     <section class="not-main-page recent-searches"></section>
     <section class="not-main-page popular-series"></section>
     <section class="not-main-page hearted-heroes"></section>
 
     <script src="https://apis.google.com/js/api.js"></script>
-    <script>
-      /**
-       * Sample JavaScript code for youtube.search.list
-       * See instructions for running APIs Explorer code samples locally:
-       * https://developers.google.com/explorer-help/guides/code_samples#javascript
-       */
-        var apiKey = "AIzaSyDulmGtXAtdv2UwgdW8GNIU1V_Bo9xDEv0";
-        var url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCvC4D8onUfXzvjTOM-dBfEA&key="+apiKey;
-        var clientId = "106795843179-dolmi6dsd59adguvk0hveoeco1gtaqh4.apps.googleusercontent.com";
-        fetch(url)
-        .then(function(response){
-            if (!response.ok) {
-                throw response.json();
-                }
-                return response.json();
-                })
-        .then(function(data){
-            // showing data
-            console.log(data);
-        })
-    </script>
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>

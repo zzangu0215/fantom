@@ -94,7 +94,7 @@ function searchHero(searchword) {
 }
 
 function fetchYouTube() {
-
+    // var youtubeAPI2 = "AIzaSyDulmGtXAtdv2UwgdW8GNIU1V_Bo9xDEv0";
     var youtubeAPI = "AIzaSyDmeU2kSK82oXY2ERxxqvcizBkALMtH_k4";
     var youtubeUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCvC4D8onUfXzvjTOM-dBfEA&key=" + youtubeAPI;
     //var clientId = "106795843179-dolmi6dsd59adguvk0hveoeco1gtaqh4.apps.googleusercontent.com";
@@ -111,7 +111,7 @@ function fetchYouTube() {
         data.items.forEach(function(element, index) {
             var recommendedVideoBlock = 
                 `
-                    <iframe width="560" height="315" src="${srcUrl}/${element.id.videoId}" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="cell large-auto" src="${srcUrl}/${element.id.videoId}" frameborder="0" allowfullscreen></iframe>
                 `;
 
             $("#hero-trailer").append(recommendedVideoBlock);
@@ -151,7 +151,7 @@ function goToHeroPage(data) {
 
     var appendBlock = 
         `
-        <div class="card" style="width: 300px;">
+        <div class="card" >
             <h2 id="heroname" class="card-divider">${heroname}</h2>
             <img id="heroThumbnail" src=${thumbnail}>
             <div class="card-section">
@@ -296,7 +296,7 @@ function goToPopularSeries() {
             <li class="accordion-item is-active" data-accordion-item>
                 <a href="#" class="accordion-title">${popularHeroes[i].heroname}</a>
                 <div class="accordion-content" data-tab-content>
-                    <div class="card" style="width: 300px;">
+                    <div class="card">
                         <div id="popular-hero${i}" class="card-divider">
                             ${popularHeroes[i].heroname}
                         </div>
