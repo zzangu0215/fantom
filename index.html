@@ -6,16 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="Id=edge">
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>FANTOM PROJECT</title>
   </head>
   <body>
-    <section class="main-page">
-      <div id='container' class="grid-x grid-padding-x callout clearfix">  
-        <header class="small-10  ">
+    <!-- <div id="container" class="grid-x grid-padding-x callout clearfix"> -->
+      <div id="container" class="grid-x grid-padding-x callout clearfix"> 
+        <div class="home-button">
+          <button type="button" class="button secondary small-2" id="home-button">HOME</button>
+        </div> 
+        <header class="small-10">
           <div class="grid-x grid-padding-x">
           <h1 class="main-header float-center">FANTOM</h1>
           </div>
-        </header>
+        </header>  
+      <!-- <header class="small-10"> -->
         <section class="menu-dropdown small-2">
           <div class="row">
             <div class="columns">
@@ -26,14 +31,16 @@
                     <li><button type="button" class="button primary" id="goto-myheroes">My Heroes</button></li>
                     <li><button type="button" class="button primary" id="goto-recentsearches">Recent Searches</button></li>
                     <li><button type="button" class="button primary" id="goto-popularseries">Popular Series</button></li>
-                    <li><button type="button" class="button primary" id="goto-onlinestores">Online Stores</button></li>
                   </ul>
                 </li>
               </ul>
             </div>
           </div>
-        </section>  
+        </section>
+      <!-- </header> -->
       </div>
+    <section class="main-page">
+      <!-- </div> -->
       <main>
         <form>
           <div class="grid-container">
@@ -51,13 +58,14 @@
         <div id="hero-trailer" class="grid-x grid-padding-x grid-container"></div>
       </main>
     </section>
+    <!-- <section class="home-button">
+      <button type="button" class="button secondary" id="home-button">HOME</button>
+    </section> -->
     <section class="not-main-page hero-page"></section>
     <section class="not-main-page recent-searches"></section>
     <section class="not-main-page popular-series"></section>
     <section class="not-main-page hearted-heroes"></section>
-
     <script src="https://apis.google.com/js/api.js"></script>
-
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://apis.google.com/js/api.js"></script>
