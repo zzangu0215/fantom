@@ -21,13 +21,16 @@ If you **hover** the menu button, you are going to see several pages that you ca
     - **Recent Searches** Page: This page is where you can see the lists of what you searched recently.
     - **Popular Series** Page: This page is where you can see the most popular series of the marvel cinematic such as **The Avengers**, **Captain America Series**, and **Iron Man Series**.
 
-| Home Page![Image Caption](images/home.PNG) | Menu Button![Image Caption](images/home-menu.PNG) | 
+| **Home Page**![Image Caption](images/home.PNG) |  | 
 |----|----|
-| **Hero Page**![Image Caption](images/hero-page1.PNG) | **Hero Page**![Image Caption](images/hero-page2.PNG) |
 
-| My Hero Page![Image Caption](images/my-hero.PNG) | Popular Series Page![Image Caption](images/popular-series.PNG) | 
+| Hero Page-1![Image Caption](images/hero-page1.PNG) | Hero Page-2![Image Caption](images/hero-page2.PNG) | 
 |----|----|
-| **Recent Searches Page**![Image Caption](images/recent-searches.PNG) |  | 
+
+| Menu Dropdown![Image Caption](images/home-menu.PNG) | My Hero Page![Image Caption](images/my-hero.PNG) |
+|----|----|
+
+| Popular Series![Image Caption](images/popular-series.PNG) | Recent Searches Page![Image Caption](images/recent-searches.PNG) | 
 |----|----|
 
 ## Proposal
