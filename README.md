@@ -1,37 +1,58 @@
 # Fantom  
 
-Deployment page Url: https://zzangu0215.github.io/fantom/
-Github page Url: https://github.com/zzangu0215/fantom
+Do you want to explore about your favorite MARVEL heroes?  
+You should checkout our [**FANTOM** app](https://zzangu0215.github.io/fantom/) to get more familiar with your favorite heroes!  
 
-<How to use it!>
+## Features
 
-If you want to search a specific hero
-  1. Put hero name on search input area
-  2. This API is really sensitive to Upper and Lower cases, space between words, and special key like dash.
-  3. Make sure that press "submit" button. Enter key does not work
-  4. If you put a fitting well hero name on it, Information of your searched hero will show up.
-  5. You can press "Save" button to save the hero later.
-      a. you can find your "saved" hero in "My heroes" tab in Menu in the main page.
-  7. If you want to go back to the main page, just press "Home" button.
+1. If you **SEARCH** by a **Hero Name**,
+    - You can see a lot of information of your searched hero listed below!
+        - Hero Name
+        - Real Name in Marvel Cinema
+        - Description / Biography
+        - Thumbnail
+        - Marvel Cinematic Video Clip
+    - Also, You can **SAVE** your hero if you think the hero that you just searched is who you are in love.
 
-If you want to search popular heroes,
-  1. please press "Menu" button on the main page.
-  2. then Click "Popular Series".
-  3. There are a few Popular series in the marvel universe.
+2. You can always get access to the **MENU** button in case you want to browse other pages for our app.  
+If you **hover** the menu button, you are going to see several pages that you can visit! 
+    - **My Heroes** Page: This page is where you can see the lists of what you saved while you're browsing the heroes.  
+    Don't forget to save if you want to come back here and see your favorite heroes!
+    - **Recent Searches** Page: This page is where you can see the lists of what you searched recently.
+    - **Popular Series** Page: This page is where you can see the most popular series of the marvel cinematic such as **The Avengers**, **Captain America Series**, and **Iron Man Series**.
 
-There is nothing to install to use app. 
-If you want to report your issues, 
-please leave an issues on Github page.
+## APIs Used
 
-#Author
+1. Marvel API
+2. Youtube API
+
+## Technologies Used
+
+1. JavaScript
+2. JQuery
+2. CSS Framework
+3. CSS
+4. HTML
+
+## Demo Video
+
+Here is the [**Demo Video Link**]()
+
+## Author
 
 - **Jun Park**
+    - Portfolio: [Portfolio](https://zzangu0215.github.io/BootCamp-Homework2/) (to be updated)
     - Email: tajo0215@gmail.com
+    - SNS: https://www.instagram.com/o0ojunny/
 
 - **Israel Magallon**
+    - Portfolio: [Portfolio]() (to be updated)
     - Email: izzymagallonworks@gmail.com
+    - SNS: 
 
 - **Daeyoung Bae**
+    - Portfolio: [Portfolio]() (to be updated)
     - Email: wooglow@gmail.com
+    - SNS: 
 
 
