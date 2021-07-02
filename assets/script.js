@@ -5,7 +5,7 @@ fetchYouTube();
 $(".not-main-page").hide();
 
 var currentHero = "";
-var heroList = [];
+var heroList = JSON.parse(localStorage.getItem(currentHero)) || [];
 
 
 var heroActualNames = [
@@ -67,6 +67,8 @@ var heroDescription = [
 
 function searchHero(searchword) {
 
+    $(".not-main-page").empty();
+
     var marvelAPI = "5676e7d9c3a3777b9fb6a77f56ea448c";
 
     if (searchword) {
@@ -85,7 +87,7 @@ function searchHero(searchword) {
             })
     .then(function(data){
         
-        heroPage(data);        
+        goToHeroPage(data);        
            
     })
 
@@ -93,7 +95,7 @@ function searchHero(searchword) {
 
 function fetchYouTube() {
 
-    var youtubeAPI = "AIzaSyDulmGtXAtdv2UwgdW8GNIU1V_Bo9xDEv0";
+    var youtubeAPI = "AIzaSyDmeU2kSK82oXY2ERxxqvcizBkALMtH_k4";
     var youtubeUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCvC4D8onUfXzvjTOM-dBfEA&key=" + youtubeAPI;
     //var clientId = "106795843179-dolmi6dsd59adguvk0hveoeco1gtaqh4.apps.googleusercontent.com";
     var srcUrl = "https://www.youtube.com/embed/";
@@ -118,7 +120,27 @@ function fetchYouTube() {
 
 }
 
-function heroPage(data) {
+function createHomeButton() {
+
+    var homeButtonBlock = 
+        `
+        <button type="button" class="button secondary" id="home-button">HOME</button>
+        `;
+
+    $(".not-main-page").append(homeButtonBlock);
+
+}
+
+function goToHome() {
+
+    //$(this).parent().hide();
+    $(this).parent().empty();
+    $(".main-page").show();
+    $("#hero-input").val("");
+
+}
+
+function goToHeroPage(data) {
     
     createHomeButton();
 
@@ -164,28 +186,6 @@ function heroPage(data) {
     $(".hero-page").show();
 }
 
-function createHomeButton() {
-
-    var homeButtonBlock = 
-        `
-        <button type="button" class="button secondary" id="home-button">HOME</button>
-        `;
-
-    $(".not-main-page").append(homeButtonBlock);
-
-}
-
-function goToHome() {
-    
-    console.log("1");
-
-    $(this).parent().hide();
-    $(this).parent().empty();
-    $(".main-page").show();
-    $("#hero-input").val("");
-
-}
-
 function goToMyHeroes() {
 
     $(".not-main-page").empty();
@@ -205,24 +205,29 @@ function goToMyHeroes() {
             </header>
             <body>
                 <div id="heartContainer" class="flex-container flex-dir-column heartedContainer">
-                    <a href="#0" class="button expanded btn">Spider-Man</a>
-                    <a href="#0" class="button expanded btn">Black Panther</a>
-                    <a href="#0" class="button expanded btn">Iron Man</a>
                 </div>
             </body>
         `;
 
     $(".hearted-heroes").append(myHeroPageBlock);
+
+    var heroList = JSON.parse(localStorage.getItem("savedHeroes")) || [];
+
+    console.log(heroList);
+
+    for (var i=0; i<heroList.length; i++){
+
+        var myHeroButtons = 
+            `
+            <button type="button" id="saved-hero" class="button expanded btn">${heroList[i]}</button>
+            `;
+
+        $("#heartContainer").append(myHeroButtons);
     
+    }
+
     $(".hearted-heroes").show();
 }
-
-function storeHero () {
-    heroList = JSON.parse(localStorage.getItem("savedHeroes")) || [];
-    heroList.push(currentHero);
-    localStorage.setItem("savedHeroes", JSON.stringify(heroList))
-}
-
 
 function goToPopularSeries() {
 
@@ -319,7 +324,22 @@ function goToPopularSeries() {
 
 }
 
+function storeHero () {
+    var heroList = JSON.parse(localStorage.getItem("savedHeroes")) || [];
+    heroList.push(currentHero);
+    localStorage.setItem("savedHeroes", JSON.stringify(heroList))
+}
+
+function getSavedHeroes() {
+
+    var hero = $(this).text();
+
+    searchHero(hero);
+
+}
+
 $(".hero-page").on("click", "#heart", storeHero);
+$(".hearted-heroes").on("click", "#saved-hero", getSavedHeroes);
 $(".not-main-page").on("click", "#home-button", goToHome);
 
 $("#goto-myheroes").on("click", goToMyHeroes);
@@ -331,10 +351,7 @@ $("#submit-button").on("click", function (event) {
     currentHero = $("#hero-input").val().trim();
 
     searchHero(currentHero);
-    storeRecentSearch ()
+    storeRecentSearch();
 
     $(".main-page").hide();
 })
-
-
-
