@@ -23,4 +23,15 @@ There is nothing to install to use app.
 If you want to report your issues, 
 please leave an issues on Github page.
 
+#Author
+
+- **Jun Park**
+    - Email: tajo0215@gmail.com
+
+- **Israel Magallon**
+    - Email: izzymagallonworks@gmail.com
+
+- **Daeyoung Bae**
+    - Email: wooglow@gmail.com
+
 
