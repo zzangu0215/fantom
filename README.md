@@ -23,11 +23,11 @@ If you **hover** the menu button, you are going to see several pages that you ca
 
 | Home Page![Image Caption](images/home.PNG) | Menu Button![Image Caption](images/home-menu.PNG) | 
 |----|----|
-| Hero Page![Image Caption](images/hero-page1.PNG) | Hero Page![Image Caption](images/hero-page2.PNG) |
-|----|----|
+| **Hero Page**![Image Caption](images/hero-page1.PNG) | **Hero Page**![Image Caption](images/hero-page2.PNG) |
+
 | My Hero Page![Image Caption](images/my-hero.PNG) | Popular Series Page![Image Caption](images/popular-series.PNG) | 
 |----|----|
-| Recent Searches Page![Image Caption](images/recent-searches.PNG) |  | 
+| **Recent Searches Page**![Image Caption](images/recent-searches.PNG) |  | 
 |----|----|
 
 ## Proposal
@@ -49,7 +49,7 @@ Link to Proposal: [**FANTOM Proposal**](https://docs.google.com/document/d/1tgma
 
 ## Demo Video
 
-Here is the [**Demo Video Link**]()
+Here is the [**Demo Video Link**](https://youtu.be/jlE5-H5hLZw)
 
 ## Author
 
