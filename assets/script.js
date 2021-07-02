@@ -1,11 +1,11 @@
 $(".main-page").show();
 $(".menu-dropdown").show();
-fetchYouTube();
+//fetchYouTube();
 
 $(".not-main-page").hide();
 
 var currentHero = "";
-var heroList = JSON.parse(localStorage.getItem(currentHero)) || [];
+var heroList = [];
 
 
 var heroActualNames = [
@@ -18,11 +18,6 @@ var heroActualNames = [
         heroname: "Captain America",
         realname: "Steve Rodgers",
         herovideoId: "43NWzay3W4s"
-    },
-    {
-        heroname: "Spider-Man",
-        realname: "Peter Parker",
-        herovideoId: "LFoz8ZJWmPs"
     },
     {
         heroname: "Thor",
@@ -94,7 +89,7 @@ function searchHero(searchword) {
 }
 
 function fetchYouTube() {
-    // var youtubeAPI2 = "AIzaSyDulmGtXAtdv2UwgdW8GNIU1V_Bo9xDEv0";
+
     var youtubeAPI = "AIzaSyDmeU2kSK82oXY2ERxxqvcizBkALMtH_k4";
     var youtubeUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCvC4D8onUfXzvjTOM-dBfEA&key=" + youtubeAPI;
     //var clientId = "106795843179-dolmi6dsd59adguvk0hveoeco1gtaqh4.apps.googleusercontent.com";
@@ -142,6 +137,7 @@ function goToHome() {
 
 function goToHeroPage(data) {
     
+    $(".not-main-page").empty();
     createHomeButton();
 
     var heroname = data.data.results[0].name;
@@ -151,8 +147,9 @@ function goToHeroPage(data) {
 
     var appendBlock = 
         `
-        <div class="card" >
+        <div class="card">
             <h2 id="heroname" class="card-divider">${heroname}</h2>
+            <div id="herocard"></div>
             <img id="heroThumbnail" src=${thumbnail}>
             <div class="card-section">
                 <p id="heroDescription">${heroDescription}</p>
@@ -170,7 +167,7 @@ function goToHeroPage(data) {
             var realnameBlock = `<h4 id="realName">
                                     \n${heroActualNames[i].realname}
                                 </h4>`;
-            $("#heroname").append(realnameBlock);
+            $("#herocard").append(realnameBlock);
 
             var youtubeBlock = 
             `
@@ -227,6 +224,50 @@ function goToMyHeroes() {
     }
 
     $(".hearted-heroes").show();
+}
+
+function goToRecentSearchesPage() {
+
+    $(".not-main-page").empty();
+    createHomeButton();
+
+    $(".main-page").hide();
+    $(".hero-page").hide();
+    $(".hearted-heroes").hide();
+    $(".popular-series").hide();
+
+    var recentSearchPageBlock = 
+        `
+            <header>
+                <div class="grid-x grid-padding-x">
+                    <h1 class="main-header">RECENT SEARCHES</h1>
+                </div>
+            </header>
+            <body>
+                <div id="recent-hero-search" class="flex-container flex-dir-column heartedContainer">
+                </div>
+            </body>
+        `;
+
+    $(".recent-searches").append(recentSearchPageBlock);
+
+    var recentSearchList = JSON.parse(localStorage.getItem("recentlySearched")) || [];
+
+    console.log(recentSearchList);
+
+    for (var i=0; i<recentSearchList.length; i++){
+
+        var searchedHeroButtons = 
+            `
+            <button type="button" id="searched-hero" class="button expanded btn">${recentSearchList[i]}</button>
+            `;
+
+        $("#recent-hero-search").append(searchedHeroButtons);
+    
+    }    
+
+    $(".recent-searches").show();
+
 }
 
 function goToPopularSeries() {
@@ -326,24 +367,45 @@ function goToPopularSeries() {
 
 function storeHero () {
     var heroList = JSON.parse(localStorage.getItem("savedHeroes")) || [];
-    heroList.push(currentHero);
+
+    var saveHero = $(this).siblings("h2").text();
+    heroList.push(saveHero);
     localStorage.setItem("savedHeroes", JSON.stringify(heroList))
+}
+
+function storeRecentSearch () {
+    var recentSearchList = JSON.parse(localStorage.getItem("recentlySearched")) || [];
+    recentSearchList.push(currentHero);
+    localStorage.setItem("recentlySearched", JSON.stringify(recentSearchList))
 }
 
 function getSavedHeroes() {
 
-    var hero = $(this).text();
+    $(this).parent().parent().empty();
+    var savedHero = $(this).text();
 
-    searchHero(hero);
+    searchHero(savedHero);
+
+}
+
+function getSearchedHeroes() {
+
+    $(this).parent().parent().empty();
+    var searchedHero = $(this).text();
+
+    searchHero(searchedHero);
 
 }
 
 $(".hero-page").on("click", "#heart", storeHero);
-$(".hearted-heroes").on("click", "#saved-hero", getSavedHeroes);
+$(".recent-searches").on("click", "#searched-hero", getSavedHeroes);
+$(".hearted-heroes").on("click", "#saved-hero", getSearchedHeroes);
+
 $(".not-main-page").on("click", "#home-button", goToHome);
 
 $("#goto-myheroes").on("click", goToMyHeroes);
 $("#goto-popularseries").on("click", goToPopularSeries);
+$("#goto-recentsearches").on("click", goToRecentSearchesPage);
 
 $("#submit-button").on("click", function (event) {
     event.preventDefault();
