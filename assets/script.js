@@ -1,5 +1,6 @@
 $(".main-page").show();
 $(".menu-dropdown").show();
+fetchYouTube();
 
 $(".not-main-page").hide();
 
@@ -86,6 +87,33 @@ function searchHero(searchword) {
         
         heroPage(data);        
            
+    })
+
+}
+
+function fetchYouTube() {
+
+    var youtubeAPI = "AIzaSyDulmGtXAtdv2UwgdW8GNIU1V_Bo9xDEv0";
+    var youtubeUrl = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCvC4D8onUfXzvjTOM-dBfEA&key=" + youtubeAPI;
+    //var clientId = "106795843179-dolmi6dsd59adguvk0hveoeco1gtaqh4.apps.googleusercontent.com";
+    var srcUrl = "https://www.youtube.com/embed/";
+
+    fetch(youtubeUrl)
+    .then(function(response) {
+        if (!response.ok) {
+            throw response.json();
+        }
+        return response.json();
+    })
+    .then(function(data){
+        data.items.forEach(function(element, index) {
+            var recommendedVideoBlock = 
+                `
+                    <iframe width="560" height="315" src="${srcUrl}/${element.id.videoId}" frameborder="0" allowfullscreen></iframe>
+                `;
+
+            $("#hero-trailer").append(recommendedVideoBlock);
+        })
     })
 
 }
