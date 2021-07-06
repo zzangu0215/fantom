@@ -20,6 +20,10 @@ If you **hover** the menu button, you are going to see several pages that you ca
     Don't forget to save if you want to come back here and see your favorite heroes!
     - **Recent Searches** Page: This page is where you can see the lists of what you searched recently.
     - **Popular Series** Page: This page is where you can see the most popular series of the marvel cinematic such as **The Avengers**, **Captain America Series**, and **Iron Man Series**.
+    
+**Notice** 
+    Due to defect of api, some heroes might not be shown.
+    
 
 | **Home Page**![Image Caption](images/home.PNG) |  | 
 |----|----|
