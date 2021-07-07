@@ -61,12 +61,12 @@ Here is the [**Demo Video Link**](https://youtu.be/jlE5-H5hLZw)
 ## Author
 
 - **Jun Park**
-    - Portfolio: [**Portfolio**](https://zzangu0215.github.io/BootCamp-Homework2/) (to be updated)
+    - Portfolio: [**Portfolio**](https://zzangu0215.github.io/portfolio/) (to be updated)
     - Email: tajo0215@gmail.com
     - SNS: [**Instagram**](https://www.instagram.com/o0ojunny/)
 
 - **Israel Magallon**
-    - Portfolio: [**Portfolio**](https://imagallon.github.io/first_portfolio/) (to be updated)
+    - Portfolio: [**Portfolio**](https://imagallon.github.io/portfolio1.1/) (to be updated)
     - Email: izzymagallonworks@gmail.com
     - SNS: [**Instagram**](https://www.instagram.com/strawhatizzy/)
 
